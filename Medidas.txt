@@ -1,7 +1,9 @@
 Total de Pessoas = COUNT(FabrikamComments[id])
 
+
 Positive = CALCULATE([Total de Pessoas];
            FabrikamComments[sentiment]>0,6)
+
 
 
 Neutral = CALCULATE([Total de Pessoas];
@@ -9,5 +11,15 @@ Neutral = CALCULATE([Total de Pessoas];
            FabrikamComments[sentiment]<=0,6)
 
 
+
 Negative = CALCULATE([Total de Pessoas];
+
+
+
+Grade = IF(FabrikamComments[sentiment]<0,3;
+        "Negative";
+        IF(FabrikamComments[sentiment]>0,4 && FabrikamComments[sentiment]<=0,6;
+        "Neutral";
+        IF( FabrikamComments[sentiment]>0,6;
+        "Posiitve")))
            FabrikamComments[sentiment]<0,3)
