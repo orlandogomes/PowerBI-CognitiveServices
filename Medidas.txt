@@ -13,6 +13,7 @@ Neutral = CALCULATE([Total de Pessoas];
 
 
 Negative = CALCULATE([Total de Pessoas];
+           FabrikamComments[sentiment]<0,3)
 
 
 
